@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Ex03 {
 
 	public static void main(String[] args) {
+		
+		//회원가입 기능으로
 		Scanner scanner = new Scanner(System.in);
 		
 		String name = scanner.nextLine();

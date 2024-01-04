@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Ex04 {
 
 	public static void main(String[] args) {
+		//로그인 기능으로
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("아이디");
