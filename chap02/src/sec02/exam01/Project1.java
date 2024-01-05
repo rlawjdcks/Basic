@@ -1,4 +1,4 @@
-package sec03.exam01;
+package sec02.exam01;
 
 import java.util.Scanner;
 
