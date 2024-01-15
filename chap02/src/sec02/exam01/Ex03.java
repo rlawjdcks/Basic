@@ -6,6 +6,14 @@ public class Ex03 {
 
 	public static void main(String[] args) {
 		
+		int x=5,y=0,z=0;
+		y= x++;
+		z=--x;
+		System.out.print(x);
+		System.out.print(y);
+		System.out.print(z);
+		
+		
 		//회원가입 기능으로
 		Scanner scanner = new Scanner(System.in);
 		
