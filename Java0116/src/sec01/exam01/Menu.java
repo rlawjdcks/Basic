@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Menu {
 	public static void main(String[] args) {
 		List<MenuMemberAccount> list= new ArrayList<>();
-		MenuMemberAccount account = new MenuMemberAccount(null, null, null, null, null);
 		Scanner scanner = new Scanner(System.in);
 		boolean run = true;
 		
@@ -35,8 +34,12 @@ public class Menu {
 				String num =  scanner.nextLine();
 				System.out.print("생년월일: ");
 				String birth =  scanner.nextLine();
-				list.add(new MenuMemberAccount(name, id, pass, num, birth));
-//				list.add(name, id, pass, num, birth);
+				MenuMemberAccount account = new MenuMemberAccount(name, id, pass, num, birth);
+//				list.add(new MenuMemberAccount(name, id, pass, num, birth));
+				list.add(account);
+				
+				
+				
 				break;
 			case 3:
 				System.out.println("3.파일저장");

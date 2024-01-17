@@ -1,13 +1,16 @@
 package com.miniProject3;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
 	private String name;
 	private String id;
 	private String pass;
 	private String tel;
 	private String ssn;
 	private int balance;
-	
+	//회원정보 파일저장 메뉴 기능도
+	//회원정보 파일에서 읽기 기능
 	
 	public Account(String name, String id, String pass, String tel, String ssn) {
 		super();

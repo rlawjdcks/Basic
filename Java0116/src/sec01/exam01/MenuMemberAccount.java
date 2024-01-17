@@ -24,6 +24,11 @@ public class MenuMemberAccount {
 		this.num = num;
 		this.birth = birth;
 	}
+	public MenuMemberAccount() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public String getName() {
 		return name;
 	}

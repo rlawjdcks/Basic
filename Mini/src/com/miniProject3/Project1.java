@@ -1,12 +1,19 @@
 package com.miniProject3;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class Project1 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		List<Account> list = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in);
 		boolean run = true;
@@ -39,9 +46,23 @@ public class Project1 {
 				break;
 			case 3:
 				System.out.println("파일저장");
+				
+				FileOutputStream fos = new FileOutputStream("c:/temp/Account.db");
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(list);
+				oos.flush();
+				oos.close();
+				
 				break;
 			case 4:
 				System.out.println("파일읽기");
+				FileInputStream fis = new FileInputStream("c:/temp/Account.db");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				list = (List<Account>)ois.readObject();
+				for (Account account : list) {
+					System.out.println(account);
+				}
+				ois.close();
 				break;
 			case 5:
 				System.out.println("프로그램 종료");
