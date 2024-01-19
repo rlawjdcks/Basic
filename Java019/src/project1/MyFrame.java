@@ -1,10 +1,8 @@
-package swing.project1;
+package project1;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,36 +13,34 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-
-
-public class MyFrame extends JFrame implements ActionListener,MouseListener{
-	List<Account> list= new ArrayList<>();
-	JButton jb = new JButton("전체내용");
+public class MyFrame extends JFrame implements ActionListener {
+	List<Account> list = new ArrayList<>();
+	JButton jb1 = new JButton("전체내용");
 	JButton jb2 = new JButton("입력");
-	JButton jb3 = new JButton("조회");
-	JButton jb4 = new JButton("수정");
-	JButton jb5 = new JButton("삭제");
-	
-	JLabel lb7 = new JLabel("메세지: 나오니?상태메세지");
-	JTextArea ta = new JTextArea();
-	
 	JTextField jt1 = new JTextField();
 	JTextField jt2 = new JTextField();
 	JTextField jt3 = new JTextField();
 	JTextField jt4 = new JTextField();
 	JTextField jt5 = new JTextField();
 	JTextField jt6 = new JTextField();
+	JLabel lb7 = new JLabel("메시지: 나오나요? 상태 메시지!");
+	JTextArea ta = new JTextArea();
 	public MyFrame() {
-	
+		jb1.addActionListener(this);
+		jb2.addActionListener(this);
 		Container con = this.getContentPane();
 		con.setLayout(null);
+		
+		con.add(lb7);
+		lb7.setLocation(20, 420);
+		lb7.setSize(400, 30);
 		
 		JLabel lb1 = new JLabel("이름");
 		con.add(lb1);
 		lb1.setLocation(20, 50);
 		lb1.setSize(100, 30);
 		
-	
+		
 		con.add(jt1);
 		jt1.setLocation(50, 50);
 		jt1.setSize(100, 30);
@@ -99,46 +95,39 @@ public class MyFrame extends JFrame implements ActionListener,MouseListener{
 		jt6.setLocation(250, 80);
 		jt6.setSize(100, 30);
 		
-	
-		jb.setLocation(20, 350);
-		jb.setSize(100, 30);
-		con.add(jb);
-		jb.addActionListener(this);
 		
-	
+		jb1.setLocation(20, 350);
+		jb1.setSize(100, 30);
+		con.add(jb1);
+		
+		
 		jb2.setLocation(200, 350);
 		jb2.setSize(100, 30);
 		con.add(jb2);
-		jb2.addActionListener(this);
 		
-		
+		JButton jb3 = new JButton("조회");
 		jb3.setLocation(380, 350);
 		jb3.setSize(100, 30);
 		con.add(jb3);
-		jb3.addActionListener(this);
 		
-		
+		JButton jb4 = new JButton("수정");
 		jb4.setLocation(560, 350);
 		jb4.setSize(100, 30);
 		con.add(jb4);
-		jb4.addActionListener(this);
 		
-		 
+		JButton jb5 = new JButton("삭제");
 		jb5.setLocation(740, 350);
 		jb5.setSize(100, 30);
 		con.add(jb5);
-		jb5.addActionListener(this);
 		
 		JScrollPane scroll = new JScrollPane(ta);
-		scroll.setLocation(20,120);
+		scroll.setLocation(20, 120);
 		scroll.setSize(830, 200);
 		con.add(scroll);
-		
 //		JTextArea ta = new JTextArea();
 //		ta.setLocation(20, 120);
 //		ta.setSize(830, 200);
 //		con.add(ta);
-//		 
 		
 		this.setLocation(200, 100);
 		this.setTitle("스윙 연습");
@@ -149,63 +138,42 @@ public class MyFrame extends JFrame implements ActionListener,MouseListener{
 	
 	public static void main(String... ar) {
 		new MyFrame();
-		
-	
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 //		System.out.println(e.getActionCommand());
 		switch (e.getActionCommand()) {
 		case "전체내용":
-			System.out.println("전체내용 내용");
-			for (Account string : list) {
-				System.out.println(string);
+			lb7.setText("전체내용 나오기");
+			for (Account acc : list) {
+				ta.append(acc.toString());
+				ta.append("\n");
 			}
 			break;
 		case "입력":
-			System.out.println("입력 실행");
-			System.out.printf("%s,%s,%s,%s,%s,%s\n",jt1.getText(),jt2.getText(),
-					jt3.getText(),jt4.getText(),jt5.getText(),jt6.getText() );
-			
-			
-			list.add(new Account(jt1.getText(),jt2.getText(),jt3.getText(),
-					jt4.getText(),jt5.getText(),jt6.getText()));
+//			System.out.println("입력 실행");
+//			System.out.printf("%s,%s,%s,%s,%s,%s\n",
+//					jt1.getText(), jt2.getText(),
+//					jt3.getText(), jt4.getText(),
+//					jt5.getText(), jt6.getText());
+			String name = jt1.getText();
+			String id = jt2.getText();
+			String pass = jt3.getText();
+			String tel = jt4.getText();
+			String ssn = jt5.getText();
+			int balance = Integer.parseInt(jt6.getText());
+			Account acc = 
+					new Account(name, id, pass, tel, ssn, balance);
+			list.add(acc);
+//			String str = String.format("%s,%s,%s,%s,%s,%d",
+//					name, id, pass, tel, ssn, balance);
+//			lb7.setText(str);
+			lb7.setText(acc.toString());
 			break;
-
 		default:
 			break;
 		}
+		
 	}
 }
