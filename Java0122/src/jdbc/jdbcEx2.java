@@ -8,25 +8,32 @@ import java.sql.Statement;
 
 public class jdbcEx2 {
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		String url = "jdbc:mysql://localhost:3306/conpany";
-		String id = "root";
-		String pass = "mysql";
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn =DriverManager.getConnection(url, id, pass);
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        // MySQL 서버의 JDBC URL, 사용자 이름 및 암호
+        String url = "jdbc:mysql://localhost:3306/firm"; // MySQL 데이터베이스의 JDBC URL
+        String id = "root"; // 데이터베이스의 사용자 이름
+        String pass = "mysql"; // 데이터베이스의 암호
 
-		Statement stmt = conn.createStatement();
-		
-		ResultSet rs = stmt.executeQuery("select ename, sal from emp");
-		while (rs.next()) {
-			int sal =  rs.getInt("sal");
-			String ename = rs.getString("ename");
-			System.out.printf("%s,%s\n",sal,ename);
-		}
-		
-		
-		conn.close();
-	}
-	
+        // MySQL JDBC 드라이버를 로드
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
+        // 데이터베이스에 연결
+        Connection conn = DriverManager.getConnection(url, id, pass);
+
+        // Statement 객체 생성
+        Statement stmt = conn.createStatement();
+
+        // SQL 쿼리를 실행하고 결과를 얻어옴
+        ResultSet rs = stmt.executeQuery("select ename, sal from emp");
+
+        // 결과 집합을 순회하면서 데이터 출력
+        while (rs.next()) {
+            int sal =  rs.getInt("sal");
+            String ename = rs.getString("ename");
+            System.out.printf("%s,%s\n", sal, ename);
+        }
+
+        // 연결을 닫음
+        conn.close();
+    }
 }

@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class jdbcEx {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		String url = "jdbc:mysql://localhost:3306/conpany";
+		String url = "jdbc:mysql://localhost:3306/company";
 		String id = "root";
 		String pass = "mysql";
 		Class.forName("com.mysql.cj.jdbc.Driver");
