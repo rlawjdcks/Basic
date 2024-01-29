@@ -20,6 +20,7 @@ public class SimpleMenu3 {
 
 	public static void main(String[] args) {
 
+		
 		try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
 			boolean exit = false;
 
@@ -87,10 +88,8 @@ public class SimpleMenu3 {
 				list.add(emp);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		for (Emp dept : list) {
@@ -191,15 +190,15 @@ public class SimpleMenu3 {
 			System.out.println("변경할 값");
 			String change = scanner.nextLine();
 			
-			// 만약 숫자형 항목이라면, 입력값을 double로 파싱
-			if (isNumericColumn) {
-				try {
-					Integer.parseInt(change);
-				} catch (NumberFormatException e) {
-					System.out.println("숫자 값을 입력하세요.");
-					return;
-				}
-			}
+//			 만약 숫자형 항목이라면, 입력값을 Int로 파싱
+//			if (isNumericColumn) {
+//				try {
+//					Integer.parseInt(change);
+//				} catch (NumberFormatException e) {
+//					System.out.println("숫자 값을 입력하세요.");
+//					return;
+//				}
+//			}
 			
 			System.out.println("수정할 항목의 empno");
 			int empno = Integer.parseInt(scanner.nextLine());
