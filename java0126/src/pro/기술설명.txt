@@ -1,0 +1,17 @@
+사용설명서,자신만의 기술
+1.
+scan사용했습니다
+switch문으로 메서드호출했습니다.
+cancel메서드 static으로 class필드에 정의 후 사용했습니다
+viewData는 변수들 try 블록 밖에서 선언,객체 생성 및 호출, sql에 담고 list 사용,trycacth문사용했습니다
+insert,update,delete도 비슷,delete는 숫자 문자 구분하기위해 boolean과 제네릭사용했습니다
+2
+BorderLayout사용해 화면셋팅했습니다
+메인메서드에서 생성자 호출했습니다.
+그 후 addActionListener 이용 이벤트발생 처리하였고 예외객체로 재정의하였습니다.
+select,update,delete 모두
+String.format을 사용하여 sql에 담았습니다
+trycatch문 사용하였습니다.
+
+
+
