@@ -9,11 +9,11 @@
 <body>
 <a href="orSelect.jsp">목록으로</a>
 <form action="orInsert2.jsp" method = "post">
-<input type="text" name="num"></br>
-<input type="text" name="name"></br>
-<input type="text" name="kor"></br>
-<input type="text" name="eng"></br>
-<input type="text" name="math"></br>
+번호<input type="text" name="num"></br>
+국어<input type="text" name="name"></br>
+국어<input type="text" name="kor"></br>
+영어<input type="text" name="eng"></br>
+수학<input type="text" name="math"></br>
 <input type="submit" value="저장하기"> 
 
 <input type="reset" />
