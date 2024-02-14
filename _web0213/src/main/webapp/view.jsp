@@ -3,6 +3,8 @@
     
 <%@ page import="java.sql.*" %>
 
+
+
 <%
     // 지정된 글 번호 얻기
     int num = Integer.parseInt(request.getParameter("num"));
