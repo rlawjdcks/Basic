@@ -28,8 +28,9 @@
     }
     
     BoardDao dao = BoardDao.getInstance();
-
- //   dao.insert(board);
+    Board board = new Board(writer, title, content);
+    dao.insert(board);
+    
     // 목록보기 화면으로 돌아감
     response.sendRedirect("list.jsp");
 %>     

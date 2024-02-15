@@ -94,18 +94,16 @@ public class BoardDao {
 	public int insert(Board board) {
 		 String curTime = LocalDate.now() + " " + 
 		            LocalTime.now().toString().substring(0, 8);
-		String sql = (String.format(
-                "insert into board " + 
-                "(writer, title, content, regtime, hits)" + 
-                "values ('%s', '%s', '%s', '%s', 0)",
-                "?, ?, ?, ?"));
+		 String sql = String.format(
+			        "insert into board (writer, title, content, regtime, hits) values ('%s', '%s', '%s', '%s', 0)",
+			        "?", "?", "?", "?");
 		PreparedStatement pstmt;
 		int rs = 0;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "writer");
-			pstmt.setString(2, "title");
-			pstmt.setString(3, "content");
+		    pstmt.setString(1, board.getWriter());
+	        pstmt.setString(2, board.getTitle());
+	        pstmt.setString(3, board.getContent());
 			pstmt.setString(4, "curTime");
 			rs = pstmt.executeUpdate();
 		} catch (SQLException e) {

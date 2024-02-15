@@ -10,7 +10,6 @@ public class Board {
 	private int hits;
 	
 	public Board(String writer, String title, String content) {
-		super();
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
