@@ -1,16 +1,16 @@
 package dto;
 
-public class MemberDto {
+public class Member {
 	private String id;
 	private String email;
+	private String name;
 	
 	@Override
 	public String toString() {
 		return "LoginBoard [id=" + id + ", email=" + email + ", name=" + name + "]";
 	}
 	
-	public MemberDto(String id, String email, String name) {
-		super();
+	public Member(String id, String email, String name) {
 		this.id = id;
 		this.email = email;
 		this.name = name;
@@ -34,5 +34,4 @@ public class MemberDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	private String name;
 }
